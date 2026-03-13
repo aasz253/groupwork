@@ -7,35 +7,99 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-    <ul>
-        <li><a href="index.html">home</a></li>
-        <li><a href="about.html">about</a></li>
-        <li><a href="skills.html">skilss</a></li>
-        <li><a href="projects.html">projects</a></li>
-        <li><a href="samples.html">samples</a></li>
-        <li><a href="testimonials.html">testmonials</a></li>
-        <li><a href="">resume</a></li>
-        <li><a href="">contact</a></li>
-    </ul>
+        <nav>
+            <button class="nav-toggle" aria-label="Open navigation" onclick="document.querySelector('nav ul').classList.toggle('show')">&#9776;</button>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="about.html">about</a></li>
+                <li><a href="skilss.html">skilss</a></li>
+                <li><a href="project.html">projects</a></li>
+                <li><a href="samples.html">samples</a></li>
+                <li><a href="testmonials.html">testmonials</a></li>
+                <li><a href="resume.html">resume</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+        <div>
+            <h1>SIFUNA CODEX</h1>
+            <h2>CODEX 2026 PORTFOLIO</h2>
+            <div class="scrolling-words-container">
+                <span id="scrolling-word"></span>
+            </div>
+            <p>This is a simple portfolio website for CODEX 2026. Ready to learn and explore</p>
+        </div>
 
-    </nav>
-    <div>
-    <h1>SIFUNA CODEX</h1>
-    <h2>CODEX 2026 POTFOLIO</h2>
-    <p>This is a simple portfolio website for CODEX 2026.Ready to learn and explore</p>
-    </div>
+        <div>
+            <img class="profile-img" src="my potfolio.jpg" alt="Portfolio picture">
+            <h2>About me</h2>
+            <p>I am a passionate developer with experience in web development and design. I love creating innovative solutions and bringing ideas to life through code.</p>
+        </div>
 
-<div>
-    <img class="profile-img" src="my potfolio.jpg" alt="Portfolio picture" type="jpg">
-<h2>About me</h2>
-<p>I am a passionate developer with experience in web development and design. I love creating innovative solutions and bringing ideas to life through code.</p>
-</div>
+        <footer>
+            <p>&copy; 2026 Sifuna Codex. All rights reserved.</p>
+        </footer>
 
-<div>
-    <footer>
-        <p>&copy; 2026 Sifuna Codex. All rights reserved.</p>
-    </footer>
-</div>
+        <script>
+                    // Animated scrolling words and background
+                    const words = [
+                        {text: 'Web Developer', bg: '#4e54c8', color: '#fff'},
+                        {text: 'Designer', bg: '#8f94fb', color: '#222'},
+                        {text: 'Innovator', bg: '#222', color: '#FFD43B'},
+                        {text: 'Problem Solver', bg: '#FFD43B', color: '#222'},
+                        {text: 'Team Player', bg: '#333', color: '#8f94fb'}
+                    ];
+                    let wordIndex = 0;
+                    function updateScrollingWord() {
+                        const el = document.getElementById('scrolling-word');
+                        const w = words[wordIndex];
+                        el.textContent = w.text;
+                        el.style.background = w.bg;
+                        el.style.color = w.color;
+                        wordIndex = (wordIndex + 1) % words.length;
+                    }
+                    document.addEventListener('DOMContentLoaded', function() {
+                        updateScrollingWord();
+                        setInterval(updateScrollingWord, 2000);
+                    });
+            // Hide menu when clicking outside or on a link (mobile)
+            document.addEventListener('DOMContentLoaded', function() {
+                const navUl = document.querySelector('nav ul');
+                const navToggle = document.querySelector('.nav-toggle');
+                document.body.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 700 && navUl.classList.contains('show')) {
+                        if (!e.target.closest('nav') || e.target.tagName === 'A') {
+                            navUl.classList.remove('show');
+                        }
+                    }
+                });
+                // Hide menu on scroll
+                window.addEventListener('scroll', function() {
+                    if (window.innerWidth <= 700 && navUl.classList.contains('show')) {
+                        navUl.classList.remove('show');
+                    }
+                });
+            });
+        </script>
 </body>
+    <style>
+        .scrolling-words-container {
+            margin: 24px auto 12px auto;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 8px 32px;
+            transition: background 0.7s, color 0.7s;
+            letter-spacing: 1px;
+        }
+        #scrolling-word {
+            transition: background 0.7s, color 0.7s;
+            border-radius: 12px;
+            padding: 4px 18px;
+        }
+    </style>
 </html>

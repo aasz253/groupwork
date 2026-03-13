@@ -71,9 +71,114 @@ p {
         transform: rotate(360deg);
     }
 }
+    text-align: center;
+    margin-top: 40px;
+    color: #888;
+    font-size: 16px;
 footer {
     text-align: center;
     margin-top: 40px;
     color: #888;
     font-size: 16px;
+}
+
+/* Responsive Navigation Bar */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    z-index: 1100;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    nav ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 700px) {
+    nav ul {
+        display: none;
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        box-shadow: none;
+        padding-top: 0;
+    }
+    nav ul.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 48px;
+        right: 10px;
+        background: #222;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        width: 150px;
+        z-index: 1200;
+        align-items: flex-start;
+        padding: 8px 0;
+    }
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        background: #222;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    nav {
+        position: static;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        margin: 16px auto;
+    }
+    .about-header, .about-section, .details-section, .animation-section {
+        padding: 10px 0;
+    }
+    .details-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    nav ul {
+        width: 100vw;
+        min-width: 0;
+    }
+    .profile-img {
+        width: 80px;
+        height: 80px;
+    }
 }

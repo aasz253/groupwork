@@ -4,6 +4,90 @@ body {
             margin: 0;
             padding: 20px;
         }
+
+/* Responsive Navigation Bar */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    z-index: 1100;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    nav ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 700px) {
+    nav ul {
+        flex-direction: column;
+        position: fixed;
+        left: -220px;
+        top: 0;
+        width: 200px;
+        height: 100vh;
+        background: #222;
+        transition: left 0.3s;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+        z-index: 1050;
+        align-items: flex-start;
+        padding-top: 60px;
+    }
+    nav ul.show {
+        left: 0;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    nav {
+        position: relative;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        margin: 16px auto;
+    }
+    .about-header, .about-section, .details-section, .animation-section {
+        padding: 10px 0;
+    }
+    .details-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    nav ul {
+        width: 100vw;
+        min-width: 0;
+    }
+    .profile-img {
+        width: 80px;
+        height: 80px;
+    }
+}
         nav {
             background: #222;
             padding: 0;

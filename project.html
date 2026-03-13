@@ -8,17 +8,163 @@
 </head>
 <body>
     <nav>
-    <ul>
-        <li><a href="index.html">home</a></li>
-        <li><a href="about">about</a></li>
-        <li><a href="s">skilss</a></li>
-        <li><a href="">projects</a></li>
-        <li><a href="">samples</a></li>
-        <li><a href="">testmonials</a></li>
-        <li><a href="">resume</a></li>
-        <li><a href="">contact</a></li>
-    </ul>
-
+        <button class="nav-toggle" aria-label="Open navigation" onclick="document.querySelector('nav ul').classList.toggle('show')">&#9776;</button>
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="skilss.html">skilss</a></li>
+            <li><a href="project.html">projects</a></li>
+            <li><a href="samples.html">samples</a></li>
+            <li><a href="testmonials.html">testmonials</a></li>
+            <li><a href="resume.html">resume</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
     </nav>
+
+    <header class="about-header">
+        <h1 class="animate-fade-in">My Projects</h1>
+        <h2 class="animate-slide-in">Showcasing My Work</h2>
+        <p class="animate-fade-in about-intro">Explore a selection of my favorite projects, each demonstrating my skills in web development, design, and problem-solving. Every project is built with passion, creativity, and a focus on delivering value.</p>
+    </header>
+
+    <section class="about-section animate-pop-in">
+        <h2>Featured Projects</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>Portfolio Website</h3>
+                <p>A modern, animated personal portfolio built with HTML, CSS, and JavaScript. Responsive, accessible, and visually engaging.</p>
+            </div>
+            <div class="detail-card">
+                <h3>Task Manager App</h3>
+                <p>Full-stack web app for managing tasks and productivity. Built with React, Node.js, and MongoDB.</p>
+            </div>
+            <div class="detail-card">
+                <h3>Online Store</h3>
+                <p>E-commerce platform with secure checkout, product management, and user authentication. Developed using Django and Stripe API.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="details-section animate-slide-in">
+        <h2>Project Highlights</h2>
+        <ul class="about-list">
+            <li>Responsive design for all devices</li>
+            <li>Modern UI/UX with smooth animations</li>
+            <li>Integration with third-party APIs</li>
+            <li>Focus on performance and accessibility</li>
+        </ul>
+    </section>
+
+    <section class="animation-section animate-fade-in">
+        <h2>Technologies Used</h2>
+        <div class="animated-icons">
+            <span class="icon-bounce"><a href="https://developer.mozilla.org/en-US/docs/Web" target="_blank" title="Web Development"><span role="img" aria-label="Web">🖥️</span></a></span>
+            <span class="icon-bounce"><a href="https://developer.android.com/guide" target="_blank" title="Mobile Development"><span role="img" aria-label="Mobile">📱</span></a></span>
+            <span class="icon-bounce"><a href="https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-cloud-computing/" target="_blank" title="Cloud Computing"><span role="img" aria-label="Cloud">☁️</span></a></span>
+            <span class="icon-bounce"><a href="https://www.cloudflare.com/learning/security/what-is-cyber-security/" target="_blank" title="Cybersecurity"><span role="img" aria-label="Security">🔒</span></a></span>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sifuna Codex. All rights reserved.</p>
+    </footer>
+
+        <script>
+            // Hide menu when clicking outside or on a link (mobile)
+            document.addEventListener('DOMContentLoaded', function() {
+                const navUl = document.querySelector('nav ul');
+                const navToggle = document.querySelector('.nav-toggle');
+                document.body.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 700 && navUl.classList.contains('show')) {
+                        if (!e.target.closest('nav') || e.target.tagName === 'A') {
+                            navUl.classList.remove('show');
+                        }
+                    }
+                });
+                // Hide menu on scroll
+                window.addEventListener('scroll', function() {
+                    if (window.innerWidth <= 700 && navUl.classList.contains('show')) {
+                        navUl.classList.remove('show');
+                    }
+                });
+            });
+        </script>
+        <style>
+        .about-header {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .about-intro {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .about-section, .details-section, .animation-section {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            margin: 32px auto;
+            padding: 32px 24px;
+            max-width: 800px;
+            animation-duration: 1.2s;
+        }
+        .about-list {
+            margin: 18px 0 0 0;
+            padding: 0 0 0 18px;
+            color: #4e54c8;
+            font-size: 18px;
+        }
+        .details-grid {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+        .detail-card {
+            flex: 1 1 220px;
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 18px 16px;
+            box-shadow: 0 2px 8px rgba(78,84,200,0.08);
+            margin-bottom: 12px;
+            min-width: 200px;
+        }
+        .animated-icons {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 18px;
+        }
+        .icon-bounce {
+            font-size: 2.5rem;
+            animation: bounce 1.2s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-18px) scale(1.1); }
+        }
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1.2s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .animate-slide-in {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: slideIn 1.2s forwards;
+        }
+        @keyframes slideIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-pop-in {
+            opacity: 0;
+            transform: scale(0.95);
+            animation: popIn 1.2s forwards;
+        }
+        @keyframes popIn {
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
 </body>
 </html>

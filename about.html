@@ -8,17 +8,166 @@
 </head>
 <body>
     <nav>
-    <ul>
-        <li><a href="index.html">home</a></li>
-        <li><a href="about">about</a></li>
-        <li><a href="s">skilss</a></li>
-        <li><a href="">projects</a></li>
-        <li><a href="">samples</a></li>
-        <li><a href="">testmonials</a></li>
-        <li><a href="">resume</a></li>
-        <li><a href="">contact</a></li>
-    </ul>
-
+        <button class="nav-toggle" aria-label="Open navigation" onclick="document.querySelector('nav ul').classList.toggle('show')">&#9776;</button>
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="skilss.html">skilss</a></li>
+            <li><a href="project.html">projects</a></li>
+            <li><a href="samples.html">samples</a></li>
+            <li><a href="testmonials.html">testmonials</a></li>
+            <li><a href="resume.html">resume</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
     </nav>
+
+    <header class="about-header">
+        <img class="profile-img" src="my potfolio.jpg" alt="Portfolio picture">
+        <h1 class="animate-fade-in">SIFUNA CODEX</h1>
+        <h2 class="animate-slide-in">Professional Web Developer & Designer</h2>
+        <p class="animate-fade-in about-intro">Welcome to my portfolio! I am a passionate developer with a love for creating beautiful, interactive, and innovative web experiences. My journey in tech is driven by curiosity, creativity, and a commitment to excellence.</p>
+    </header>
+
+    <section class="about-section animate-pop-in">
+        <h2>About Me</h2>
+        <p>I specialize in front-end and back-end web development, blending technical skill with creative design. My expertise includes HTML, CSS, JavaScript, and modern frameworks. I thrive on solving complex problems and delivering user-focused solutions.</p>
+        <ul class="about-list">
+            <li>🌟 3+ years of coding experience</li>
+            <li>🎨 Strong eye for UI/UX design</li>
+            <li>🚀 Passionate about learning new technologies</li>
+            <li>🤝 Excellent team player and communicator</li>
+        </ul>
+    </section>
+
+    <section class="details-section animate-slide-in">
+        <h2>Professional Details</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>Education</h3>
+                <p>BSc in Computer Science<br>Masinde Muliro Univercity,Kakamega, 2028</p>
+            </div>
+            <div class="detail-card">
+                <h3>Expertise</h3>
+                <p>Web Development, UI/UX, JavaScript, React, Node.js, Python</p>
+            </div>
+            <div class="detail-card">
+                <h3>Certifications</h3>
+                <p>Certified Web Professional, Google UX Design, Responsive Web Design</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="animation-section animate-fade-in">
+        <h2>Why Work With Me?</h2>
+        <p>I bring energy, creativity, and professionalism to every project. My approach combines modern design trends with robust coding standards, ensuring every website is both beautiful and functional.</p>
+        <div class="animated-icons">
+            <span class="icon-bounce"><a href="https://en.wikipedia.org/wiki/Innovation" target="_blank" title="Innovation"><span role="img" aria-label="Innovation">💡</span></a></span>
+            <span class="icon-bounce"><a href="https://www.mindtools.com/a4wo118/goal-setting" target="_blank" title="Goal Setting"><span role="img" aria-label="Goal">🎯</span></a></span>
+            <span class="icon-bounce"><a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing" target="_blank" title="Web Tools"><span role="img" aria-label="Tools">🛠️</span></a></span>
+            <span class="icon-bounce"><a href="https://www.investopedia.com/terms/p/performance-metrics.asp" target="_blank" title="Performance Metrics"><span role="img" aria-label="Performance">📈</span></a></span>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sifuna Codex. All rights reserved.</p>
+    </footer>
+
+        <script>
+            // Hide menu when clicking outside or on a link (mobile)
+            document.addEventListener('DOMContentLoaded', function() {
+                const navUl = document.querySelector('nav ul');
+                const navToggle = document.querySelector('.nav-toggle');
+                document.body.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 700 && navUl.classList.contains('show')) {
+                        if (!e.target.closest('nav') || e.target.tagName === 'A') {
+                            navUl.classList.remove('show');
+                        }
+                    }
+                });
+                // Hide menu on scroll
+                window.addEventListener('scroll', function() {
+                    if (window.innerWidth <= 700 && navUl.classList.contains('show')) {
+                        navUl.classList.remove('show');
+                    }
+                });
+            });
+        </script>
+        <style>
+        .about-header {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .about-intro {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .about-section, .details-section, .animation-section {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            margin: 32px auto;
+            padding: 32px 24px;
+            max-width: 800px;
+            animation-duration: 1.2s;
+        }
+        .about-list {
+            margin: 18px 0 0 0;
+            padding: 0 0 0 18px;
+            color: #4e54c8;
+            font-size: 18px;
+        }
+        .details-grid {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+        .detail-card {
+            flex: 1 1 220px;
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 18px 16px;
+            box-shadow: 0 2px 8px rgba(78,84,200,0.08);
+            margin-bottom: 12px;
+            min-width: 200px;
+        }
+        .animated-icons {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 18px;
+        }
+        .icon-bounce {
+            font-size: 2.5rem;
+            animation: bounce 1.2s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-18px) scale(1.1); }
+        }
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1.2s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .animate-slide-in {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: slideIn 1.2s forwards;
+        }
+        @keyframes slideIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-pop-in {
+            opacity: 0;
+            transform: scale(0.95);
+            animation: popIn 1.2s forwards;
+        }
+        @keyframes popIn {
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
 </body>
 </html>
